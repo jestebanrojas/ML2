@@ -100,8 +100,9 @@ image.
       The accuracy of the models are as next:
       - SVD with 2 features. Accuracy: 0.9541
       - SVD with 4 features. Accuracy: 0.9778
-      - PCA
-      - 
+      - PCA with 2 features. Accuracy 0.9552
+      - PCA with 4 features. Accuracy 0.9763
+      - T-SNE with 2 features. Accuracy
 ----------------------------------------------------------------------
 - // To see task 6 development details look and run the task6.py script
 
@@ -111,7 +112,15 @@ image.
 7. Repeat the process above but now using the built-in algorithms in the Scikit-Learn library.
 - How different are these results from those of your implementation? Why?
     - R:// the accuracy obtained are practically the same in the both svd and pca, but the t-sne results are quite different because
-    - of the different approach used by me vs the built in algorithm
+      of the different approach used by me vs the built in algorithm.
+
+      The accuracy of the models are as next:
+      - SVD with 2 features. Accuracy: 0.9541
+      - SVD with 4 features. Accuracy: 0.9778
+      - PCA with 2 features. Accuracy 0.9552
+      - PCA with 4 features. Accuracy 0.9763
+      - T-SNE with 2 features. Accuracy
+      
 ----------------------------------------------------------------------
 - // To see task 7 development details look and run the task7.py script
 
@@ -135,7 +144,8 @@ al%20with%20Robust%20PCA.ipynb]
     -R:// UMAP is a dimensionality reduction technique and it consists in the mapping the data from a high dimension  space to a los dimension space, but
            preserving the orogonal data relationship structure. It means that close data points must be close in the reduce space, and the separated ones
            must continue being separated.
-
+   
+   It is used, in addition od the dimensionality reduction, at image processing, biological and chemical patterns, etc.
 
    
 ----------------------------------------------------------------------
@@ -145,9 +155,21 @@ al%20with%20Robust%20PCA.ipynb]
 ----------------------------------------------------------------------
 10. What are the underlying mathematical principles behind LDA? What is it useful for?
 ----------------------------------------------------------------------
+   -R://LDA stands for Linear Discriminant Analysis and it is also a dimensionality reduction technique whose purpose is to maximize the distance between 
+        classes but also to keep the close the elementos wich where close in the original space. It is based in the intraclass scattering matrix (Sw), the 
+        interclass scattering matrix (Sb) and the eigenvector of the product of the (Sw)^-1.Sb.
 
+   It is used, in addition od the dimensionality reduction, as a clisification tool, image processing, biological and chemical patterns, etc.
 
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------
 11. Use your unsupervised Python package as a basis to build an HTTP server that receives a record as input
 and returns the class of the image. Suggestions: MNIST digit classifier, Iris classifier..
+----------------------------------------------------------------------
+-//: The approach is to predict the iris type from the input params. To solve this task, there are 2 files. The first one is the task11.html. this is the 
+     user interface  and must be opened on a web browser; here the user may input the iris params. The second file is the task11.py whre the HTML server 
+     is created and deployed. This one is in charge of receive the params and make the type prediction.  
+     
+   To run the code, the first step is to run the task11.py script to start the HTTP Server over the 8000 port. then the user must run the task11.html using 
+    any web browser, input all the params and click the "Predict" button.
+     
