@@ -1,8 +1,8 @@
-# ML2
+# Machine Learning 2
 
 # Lab No. 1
-# Machine Learning 2
 # Por Juan Esteban Rojas
+CC:1128271292
 
 
 ----------------------------------------------------------------------
@@ -119,7 +119,7 @@ image.
       - SVD with 4 features. Accuracy: 0.9778
       - PCA with 2 features. Accuracy 0.9552
       - PCA with 4 features. Accuracy 0.9763
-      - T-SNE with 2 features. Accuracy
+      - T-SNE with 2 features. Accuracy 0.9993
       
 ----------------------------------------------------------------------
 - // To see task 7 development details look and run the task7.py script
@@ -134,9 +134,10 @@ al%20with%20Robust%20PCA.ipynb]
               - Eliminate outliers: Let the data not beig affected by the outliers
               - Normalize the data: It helps to have the data in the same scale
               - Apply a crossvalidation: To improve the components selection
+              - Some literature says to use Kernel PCA prior to use PCA.
 ----------------------------------------------------------------------
 
-
+- // The task8.py shows an implementation of some of the described techniques.
 
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------
