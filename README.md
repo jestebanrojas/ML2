@@ -102,7 +102,7 @@ image.
       - SVD with 4 features. Accuracy: 0.9778
       - PCA with 2 features. Accuracy 0.9552
       - PCA with 4 features. Accuracy 0.9763
-      - T-SNE with 2 features. Accuracy
+      - T-SNE with 2 features. Accuracy 0.5011
 ----------------------------------------------------------------------
 - // To see task 6 development details look and run the task6.py script
 
