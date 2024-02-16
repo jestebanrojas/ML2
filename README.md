@@ -120,6 +120,7 @@ image.
       - PCA with 2 features. Accuracy 0.9552
       - PCA with 4 features. Accuracy 0.9763
       - T-SNE with 2 features. Accuracy 0.9993
+      - T-SNE with 4 features. Accuracy 0.9985
       
 ----------------------------------------------------------------------
 - // To see task 7 development details look and run the task7.py script
