@@ -7,9 +7,15 @@
 
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------
-1. Simulate any random rectangular matrix A 
+1. Simulate any random rectangular matrix A
+
+With a random created matrix of:
+[[2 0 6 3]
+ [1 3 5 0]
+ [3 1 2 2]]
+   
 - What is the rank and trace of A?
-    - R://
+    - R:// The rank is 3 and the trace is 7
 - What is the determinant of A?
     - R: // it is not calculatethe A matrix determinant, beacuse it is a rectangular matrix
 - Can you invert A? How?
@@ -30,7 +36,7 @@
 - How distant is your face from the average? How would you measure it?
     R:// To know how distant is my face from the average, we will use an euclidean distance, so
           the first step is to substract my face image from the average image, and then calculate 
-          the euclidean distance. The calculated distance is: 
+          the euclidean distance. The calculated distance is: 34933.885
 ----------------------------------------------------------------------
   
 - // To see task 2 development details look and run the task2.py script
@@ -66,7 +72,7 @@ ynb]
           I can say tha the images is appropriately reproduced from 25 or more singular values
 - How would you quantify how different your photo and the approximation are?
     - R:// We can determine ghow different my phot is against the aproximated reconstructed image calculating
-            the euclidean distance between both images
+            the euclidean distance between both images. In this case the distance is 1336.908
 ----------------------------------------------------------------------
 - // To see task 4 development details look and run the task4.py script
 
@@ -76,7 +82,8 @@ ynb]
 5. Train a naive logistic regression on raw MNIST images to distinguish between 0s and 8s. We are calling 
 this our baseline. What can you tell about the baseline performance?
 
-- R:// After apply the logistic regression, the accuracy of the trained model is xxxx
+- R:// After apply the logistic regression, the accuracy of the trained model is  0.9891 wich is a high accuracy.
+      The f1 scor for each class is 0.99
 ----------------------------------------------------------------------
 - // To see task 5 development details look and run the task5.py script
 
@@ -89,6 +96,12 @@ image.
     - R:// yes, considering only 2 featrures on each of the 3 techniques (svd, pca, t-sne), the accuracy gets reduced a
       little bit, but the performance (computing time) is significantly improved except the t-sne wich takes to long
       iterating over the differents steps used in the algorithm
+
+      The accuracy of the models are as next:
+      - SVD with 2 features. Accuracy: 0.9541
+      - SVD with 4 features. Accuracy: 0.9778
+      - PCA
+      - 
 ----------------------------------------------------------------------
 - // To see task 6 development details look and run the task6.py script
 
