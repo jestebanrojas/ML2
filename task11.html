@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enviar Parámetros de Iris</title>
+</head>
+<body>
+  <h2>Enviar Parámetros de Iris</h2>
+  <form action="http://localhost:8000/predict" method="post">
+    <label for="sepal_length">Longitud del Sépalo:</label>
+    <input type="text" name="sepal_length" id="sepal_length" required>
+
+    <br><br>
+
+    <label for="sepal_width">Ancho del Sépalo:</label>
+    <input type="text" name="sepal_width" id="sepal_width" required>
+
+    <br><br>
+
+    <label for="petal_length">Longitud del Pétalo:</label>
+    <input type="text" name="petal_length" id="petal_length" required>
+
+    <br><br>
+
+    <label for="petal_width">Ancho del Pétalo:</label>
+    <input type="text" name="petal_width" id="petal_width" required>
+
+    <br><br>
+
+    <input type="submit" value="Predecir">
+  </form>
+</body>
+</html>

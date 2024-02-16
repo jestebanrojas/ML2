@@ -3,15 +3,6 @@
 #from __future__ import print_function
 
 import numpy as np
-#from sklearn.datasets import fetch_openml
-
-
-#import numpy as np
-#import matplotlib.pyplot as plt
-
-
-
-
 
 
 def calculate_P(X, perplexity=30.0, tol=1e-5, max_iter=1000):
@@ -19,15 +10,15 @@ def calculate_P(X, perplexity=30.0, tol=1e-5, max_iter=1000):
     # perplexity: Hiperparámetro de t-SNE
 
     n, _ = X.shape
-    print("\n x.shape:")
-    print(n)
+    #print("\n x.shape:")
+    #print(n)
     P = np.zeros((n, n))
 
     # Buscar la mejor sigma para cada punto
     for i in range(n):
 
-        print("\n iteracion 1 calculate p:")
-        print(i)
+        #print("\n iteracion 1 calculate p:")
+        #print(i)
         sigma_low, sigma_high = 0.0, np.inf
         target_perplexity = np.log2(perplexity)
 
@@ -106,8 +97,8 @@ def tsne(X, num_dimensions=30, learning_rate=50.0, perplexity=30.0, num_iteratio
     Y = np.random.randn(X.shape[0], num_dimensions)
 
     for iteration in range(num_iterations):
-        print("\n iteracion tsne:")
-        print(iteration)
+        #print("\n iteracion tsne:")
+        #print(iteration)
 
         # Calcula las probabilidades de similitud condicional (Pij)
         P = calculate_P(X, perplexity)
@@ -142,8 +133,8 @@ def calculate_P(Y, perplexity, epsilon=1e-10):
 
     # Compute conditional probabilities for each point
     for i in range(Y.shape[0]):
-        print("\n iteracion 1 calculate p:")
-        print(i)
+        #print("\n iteracion 1 calculate p:")
+        #print(i)
         # Compute conditional probabilities for point i
         exp_distances = np.exp(-beta * (distances[i] - np.max(distances[i]))) + epsilon  # Add epsilon to prevent overflow
         P[i] = exp_distances / np.sum(exp_distances)
@@ -165,8 +156,8 @@ def t_sne(X, n_dimensions=2, perplexity=30.0, learning_rate=200.0, n_iterations=
 
     # Perform t-SNE optimization
     for iteration in range(n_iterations):
-        print("\n iteracion 1 tsne")
-        print(iteration)
+        #print("\n iteracion 1 tsne")
+        #print(iteration)
 
 
         # Compute conditional probabilities

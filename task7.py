@@ -98,7 +98,7 @@ print('\nClassification Report:\n', report)
     # quantity of singular values to be considered
 n_componentes = 2
 
-# create an object from svd
+# create an object from PCA
 mnist_pca = PCA(n_components=n_componentes)
 
 # fit the data
@@ -134,7 +134,7 @@ print('\nClassification Report:\n', report)
 # quantity of singular values to be considered
 n_componentes = 4
 
-# create an object from svd
+# create an object from PCA
 mnist_pca = PCA(n_components=n_componentes)
 
 # fit the data
@@ -170,7 +170,7 @@ print('\nClassification Report:\n', report)
 # quantity of singular values to be considered
 n_componentes = 2
 
-# create an object from svd
+# create an object from TSNE
 #mnist_t_sne = t_sne.TSNE( num_dimensions=n_componentes)
 
 
@@ -213,7 +213,7 @@ print('\nClassification Report:\n', report)
 # quantity of singular values to be considered
 n_componentes = 4
 
-# create an object from svd
+# create an object from TSNE
 #mnist_t_sne = t_sne.TSNE( num_dimensions=n_componentes)
 
 

@@ -59,7 +59,7 @@ pca.fit(A)
 X_transformed = pca.transform(A)
 
 
-# Reconstruir los datos
+# re-construct the data
 X_reconstructed = np.dot(X_transformed, pca.components_) + pca.mean_
 
 

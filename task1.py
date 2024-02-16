@@ -27,7 +27,7 @@ print("\n\n The rank of the A Matrix is:\n")
 print(np.linalg.matrix_rank(A))
 
 #Trace
-print("\n\n The rank of the A Matrix is:\n")
+print("\n\n The trace of the A Matrix is:\n")
 print(np.trace(A))
 
 
@@ -95,7 +95,6 @@ Now, we can probe that A=U.S.V'
 """
 
 
-print("U,V,S",U,V.transpose(),S)
 
 U, S1, Vh = np.linalg.svd(A, full_matrices=True)
 

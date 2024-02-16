@@ -20,10 +20,10 @@ my_image = ImageOps.grayscale(my_image)
 
 
 n=255
-# Crear subgráficas
+# subplots creation
 fig, axes = plt.subplots(2, 5, figsize=(8, 15))
 
-# Iterar sobre las subgráficas y trazar los datos correspondientes
+#  iterate over the subplots to plot each image
 for i, ax in enumerate(axes.flat):
     n_componentes = 5*(i+2)
     image_svd=svd.SVD(n_components=n_componentes)
@@ -33,10 +33,10 @@ for i, ax in enumerate(axes.flat):
 
     ax.imshow(Reconst, cmap='gray')  
     ax.set_title(n_componentes)
-    ax.axis('off')  # Opcional: desactivar ejes para mejorar la presentación
+    ax.axis('off') 
 
 
-# Ajustar el diseño de la figura
+# image design adjustment
 plt.tight_layout()
 plt.show()
 
@@ -45,7 +45,7 @@ image_svd=svd.SVD(n_components=n_componentes)
 # Apply the svd transformation
 Image_reduced = image_svd.fit_transform(my_image)
 Reconst = image_svd.inverse_transform(Image_reduced)
-Image_reconst = Image.fromarray(Reconst.astype(np.uint8), 'L')  # Convertir de nuevo a imagen
+Image_reconst = Image.fromarray(Reconst.astype(np.uint8), 'L')  # convert the array into an image
 
 
 

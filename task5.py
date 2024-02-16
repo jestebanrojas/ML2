@@ -6,8 +6,6 @@
 #----------------------------------------------------------------------#
 
 
-
-
 import numpy as np
 from sklearn.datasets import fetch_openml
 from sklearn.linear_model import LogisticRegression
@@ -38,7 +36,6 @@ y_pred = model.predict(X_test)
 
 # Evaluate the accuracy of the model
 accuracy = accuracy_score(y_test, y_pred)
-print('\n PCA')
 print(f"Accuracy: {accuracy:.4f}")
 report = classification_report(y_test, y_pred)
 print('\nClassification Report:\n', report)
