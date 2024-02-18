@@ -24,7 +24,7 @@ With a random created matrix of:
     R: - The eigenvalues are the same for A'A and AA'.A
        - Both are related in the way we can reconstruct the original A matrix through the A'A, AA' eigenvectors and the eigenvalues.
 ----------------------------------------------------------------------
-- // To see task 1 development detais look and run the task1.py script
+- // To see task 1 development details look and run the task1.py script
 
 
 ----------------------------------------------------------------------
@@ -102,8 +102,9 @@ image.
       - SVD with 4 features. Accuracy: 0.9778
       - PCA with 2 features. Accuracy 0.9552
       - PCA with 4 features. Accuracy 0.9763
-      - T-SNE with 2 features. Accuracy 0.5011
-      - T-SNE with 4 features. Accuracy 0.4858
+      - T-SNE with 2 features. Accuracy 0.9960
+      - T-SNE with 4 features. Accuracy 0.9950
+        NOTE: in the T-SNE case, due to computational cost and the time required to calculate, I've taken only 5.000 samples to reduce processing time.
 ----------------------------------------------------------------------
 - // To see task 6 development details look and run the task6.py script
 
