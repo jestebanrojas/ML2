@@ -10,7 +10,8 @@ import io
 import matplotlib.pyplot as plt
 from sklearn import datasets
 from sklearn.preprocessing import StandardScaler
-from unsupervised.svd import svd
+from unsupervised.dim_red import svd
+import cgi
 
 # Load Iris Dataset
 iris = datasets.load_iris()
@@ -49,16 +50,18 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         print("Peticion recibida")
-        content_length = int(self.headers['Content-Length'])
-        raw_post_data = self.rfile.read(content_length).decode('utf-8')
-        print(raw_post_data)
-       
-       #Get the params data
-        params = parse_qs(raw_post_data)
-        sepal_length = float(params['sepal_length'][0])
-        sepal_width = float(params['sepal_width'][0])
-        petal_length = float(params['petal_length'][0])
-        petal_width = float(params['petal_width'][0])
+        content_type, pdict = cgi.parse_header(self.headers['content-type'])
+        
+        if content_type == 'multipart/form-data':
+            # Parse the form data
+            pdict['boundary'] = pdict['boundary'].encode('ascii')  # Ensure it's bytes
+            form_data = cgi.parse_multipart(self.rfile, pdict)
+
+            # Extract the field values (without double quotes)
+            sepal_length = float(form_data['sepal_length'][0])
+            sepal_width = float(form_data['sepal_width'][0])
+            petal_length = float(form_data['petal_length'][0])
+            petal_width = float(form_data['petal_width'][0])
 
         # create a dataset to allocate the iris params
         parametros_iris = [sepal_length, sepal_width, petal_length, petal_width]
@@ -73,13 +76,31 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         print(prediccion[0])
         print("Predicción:", target_names[prediccion[0]])
 
+        # Construct HTML response
+        html_response = f"""
+        <html>
+        <head><title>Resultado de la predicción</title></head>
+        <body>
+            <h2>Resultado de la predicción</h2>
+            <p>Los datos corresponden a una flor de tipo: {target_names[prediccion[0]]}</p>
+        </body>
+        </html>
+        """
+
+        # HTTP request response
+        self.send_response(200)
+        self.send_header("Content-type", "text/html")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        self.wfile.write(html_response.encode('utf-8'))
+        """
         # HTTP request response
         self.send_response(200)
         self.end_headers()
 
         self.wfile.write(b'Parametros recibidos')    
         self.wfile.write(b'\nLos datos corresponden a una flor de tipo: '+target_names[prediccion[0]].encode('utf-8') )  
-         
+        """
 
 #Server init over the 8000 port
 print("Iniciando el servidor...")

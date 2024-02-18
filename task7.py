@@ -203,7 +203,6 @@ report = classification_report(y_test, y_pred)
 print('\nClassification Report:\n', report)
 
 
-
     #----------------------------------------------------------------------#
     # --- T-SNE
     #----------------------------------------------------------------------#
@@ -222,14 +221,6 @@ mnist_t_sne = TSNE(n_components=n_componentes, method='exact', n_iter=250, n_ite
 
 
 X_transformed = mnist_t_sne.fit_transform(X)
-
-
-
-# fit the data
-#mnist_t_sne.fit(X)
-# transform the data using the PCA object
-#X_transformed = t_sne.tsne(X)
-
 
 
 # Split the dataset into training and testing sets

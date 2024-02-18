@@ -7,7 +7,7 @@
 </head>
 <body>
   <h2>Enviar Parámetros de Iris</h2>
-  <form action="http://localhost:8000/predict" method="post">
+  <form id="irisForm" action="http://localhost:8000/predict" method="post">
     <label for="sepal_length">Longitud del Sépalo:</label>
     <input type="text" name="sepal_length" id="sepal_length" required>
 
@@ -30,5 +30,33 @@
 
     <input type="submit" value="Predecir">
   </form>
+
+  <div id="predictionResult"></div>
+
+  <div id="predictionResult"></div>
+
+  <script>
+    // Add an event listener to the form submission
+    document.getElementById('irisForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+  
+      // Create a FormData object to collect form data
+      const formData = new FormData(this);
+  
+      // Make an AJAX request to the server
+      fetch('http://localhost:8000/predict', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.text())  // Assuming the server sends a text response
+      .then(result => {
+        // Update the page with the server's response
+        document.getElementById('predictionResult').innerHTML = result;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+  </script>
 </body>
 </html>

@@ -6,7 +6,6 @@
 #----------------------------------------------------------------------#
 #----------------------------------------------------------------------#
 
-
 import numpy as np
 from sklearn.datasets import fetch_openml
 from sklearn.linear_model import LogisticRegression
@@ -17,6 +16,7 @@ from sklearn.metrics import accuracy_score, classification_report
 from unsupervised.svd import svd
 from unsupervised.pca import pca
 from unsupervised.t_sne import t_sne
+from sklearn.preprocessing import StandardScaler
 
 
 
@@ -173,17 +173,19 @@ print('\nClassification Report:\n', report)
 n_componentes = 2
 
 
-# create an object from TSNE
-#mnist_t_sne = t_sne.TSNE( num_dimensions=n_componentes)
-
-
-# fit the data
-#mnist_t_sne.fit(X)
-# transform the data using the PCA object
+#Reduce the number of samples to reduce the processing time
+subset_size = 5000
+subset_indices = np.random.choice(len(X), size=subset_size, replace=False)
+X, y = X.iloc[subset_indices], y.iloc[subset_indices]
 
 X1=np.array(X)
-X_transformed = t_sne.t_sne(X1, n_dimensions=n_componentes, n_iterations=60, perplexity=1)
 
+#Normalize data. I've dcided not to use it, there was not significant improvement.
+#scaler = StandardScaler()
+#X_normalized = scaler.fit_transform(X1)
+
+tsne = t_sne.TSNE(n_components=n_componentes, max_iter=1000)
+X_transformed = tsne.fit_transform(X1)
 
 
 # Split the dataset into training and testing sets
@@ -197,32 +199,33 @@ y_pred = model.predict(X_test)
 
 # Evaluate the accuracy of the model
 accuracy = accuracy_score(y_test, y_pred)
-print('\n T-SNE 4 features')
+print('\n T-SNE 2 features')
 print(f"Accuracy: {accuracy:.4f}")
 report = classification_report(y_test, y_pred)
 print('\nClassification Report:\n', report)
-
 
 
     #----------------------------------------------------------------------#
     # --- T-SNE
     #----------------------------------------------------------------------#
 
-"""
 # quantity of singular values to be considered
 n_componentes = 4
 
-# create an object from TSNE
-#mnist_t_sne = t_sne.TSNE( num_dimensions=n_componentes)
 
-
-# fit the data
-#mnist_t_sne.fit(X)
-# transform the data using the PCA object
+#Reduce the number of samples to reduce the processing time
+subset_size = 5000
+subset_indices = np.random.choice(len(X), size=subset_size, replace=False)
+X, y = X.iloc[subset_indices], y.iloc[subset_indices]
 
 X1=np.array(X)
-X_transformed = t_sne.t_sne(X1, n_dimensions=n_componentes, n_iterations=60, perplexity=3)
 
+#Normalize data. I've dcided not to use it, there was not significant improvement.
+#scaler = StandardScaler()
+#X_normalized = scaler.fit_transform(X1)
+
+tsne = t_sne.TSNE(n_components=n_componentes, max_iter=1000)
+X_transformed = tsne.fit_transform(X1)
 
 
 # Split the dataset into training and testing sets
@@ -240,5 +243,3 @@ print('\n T-SNE 4 features')
 print(f"Accuracy: {accuracy:.4f}")
 report = classification_report(y_test, y_pred)
 print('\nClassification Report:\n', report)
-
-"""

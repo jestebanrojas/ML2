@@ -27,7 +27,7 @@ y = y[indices]
 
 # Split the dataset into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-print('inicio')
+
 # Train a naive logistic regression model
 model = LogisticRegression(solver='liblinear', max_iter=100)
 model.fit(X_train, y_train)

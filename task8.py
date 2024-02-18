@@ -4,11 +4,9 @@ import numpy as np
 from sklearn.datasets import fetch_openml
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score, classification_report
 from sklearn.decomposition import TruncatedSVD
-from sklearn.decomposition import PCA
 from sklearn.ensemble import IsolationForest
 
 

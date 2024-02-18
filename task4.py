@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from PIL import Image, ImageOps 
 import numpy as np
-from unsupervised.svd import svd
+from unsupervised.dim_red import svd
 
 
 image = Image.open(r"foto/juan_Rojas.jpg") 

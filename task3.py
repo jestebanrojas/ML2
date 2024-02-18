@@ -8,9 +8,11 @@
     # --- Implement SVD from scratch using Python and NumP
     #----------------------------------------------------------------------#
 
+
+
 # the code with the class SVD is allocated on ../unsupervised/svd
 import numpy as np
-from unsupervised.svd import svd
+from unsupervised.dim_red import svd
 
 
 # Example matrix
@@ -45,7 +47,7 @@ print(svd_1.components_)
 
 
 
-from unsupervised.pca import pca
+from unsupervised.dim_red import pca
 
 
 
@@ -74,7 +76,7 @@ print(X_reconstructed)
     # --- Implement t-SNE from scratch using Python and NumPy
     #----------------------------------------------------------------------#
 
-
+"""
 from unsupervised.t_sne import t_sne
 
 from sklearn.manifold import TSNE
@@ -87,3 +89,28 @@ A_transformed = t_sne.t_sne(A, n_dimensions=2, n_iterations=250, perplexity=1)
 
 print("\nA_transformed:")
 print(A_transformed)
+"""
+
+
+import logging
+
+import matplotlib.pyplot as plt
+from sklearn.datasets import make_classification
+
+from unsupervised.dim_red import t_sne
+
+logging.basicConfig(level=logging.DEBUG)
+
+X, y = make_classification(
+    n_samples=500, n_features=10, n_informative=5, n_redundant=0, random_state=1111, n_classes=2, class_sep=2.5
+)
+
+p = t_sne.TSNE(2, max_iter=500)
+X = p.fit_transform(X)
+
+colors = ["red", "green"]
+for t in range(2):
+    t_mask = (y == t).astype(bool)
+    plt.scatter(X[t_mask, 0], X[t_mask, 1], color=colors[t])
+
+plt.show()
