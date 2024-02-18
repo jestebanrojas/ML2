@@ -153,7 +153,7 @@ al%20with%20Robust%20PCA.ipynb]
    
    It is used, in addition od the dimensionality reduction, at image processing, biological and chemical patterns, etc.
 
-   
+   NOTE: There is no task9.py because it is only the above text response, there is no code implementation
 ----------------------------------------------------------------------
 
 
@@ -167,6 +167,7 @@ al%20with%20Robust%20PCA.ipynb]
 
    It is used, in addition od the dimensionality reduction, as a clisification tool, image processing, biological and chemical patterns, etc.
 
+   NOTE: There is no task10.py because it is only the above text response, there is no code implementation
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------
 11. Use your unsupervised Python package as a basis to build an HTTP server that receives a record as input
