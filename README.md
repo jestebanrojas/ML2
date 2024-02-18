@@ -41,6 +41,8 @@ With a random created matrix of:
   
 - // To see task 2 development details look and run the task2.py script
 
+  Note: I've not uploaded the pictures repository due to privacy concerns
+
 
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------
