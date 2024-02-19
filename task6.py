@@ -13,9 +13,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score, classification_report
-from unsupervised.svd import svd
-from unsupervised.pca import pca
-from unsupervised.t_sne import t_sne
+from unsupervised.dim_red import svd
+from unsupervised.dim_red import pca
+from unsupervised.dim_red import t_sne
 from sklearn.preprocessing import StandardScaler
 
 

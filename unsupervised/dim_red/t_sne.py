@@ -4,8 +4,6 @@ import logging
 
 import numpy as np
 
-from mla.base import BaseEstimator
-from mla.metrics.distance import l2_distance
 
 np.random.seed(999)
 
